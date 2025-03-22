@@ -1,0 +1,18 @@
+<div>
+  <h1>{{title}}</h1>
+  <nav>{{description}}</nav><br/>
+  <input type="text" name="searchValue" [(ngModel)]="searchValue" placeholder="Szukaj" (keyup) = "onSearchValue()">
+  <p>Szukam: {{searchValue}} </p>
+  <p *ngIf="galleries">
+    Ilość galerii: {{galleries.length}}
+  </p>
+  <div *ngIf="galleries"></div>
+  <section class="container">
+    <div *ngFor="let item of galleries">
+      <h4>{{item.title}}</h4>
+      <img src={{item.thumbUrl}} width="200px" height="140px"/>
+      <p><small>{{item.dateCreated | polishDate}}</small></p>      
+      <p>{{item.description}}</p>
+    </div>
+  </section>
+</div>
