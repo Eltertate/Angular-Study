@@ -17,12 +17,14 @@ export class AppComponent{
   description: string;
   galleries: IGallery[];
   searchValue: string; 
+  searchRok: string;
   
   constructor() {
     this.title = 'Moje podróże';
     this.description = 'Gdzie, kiedy i czemu mnie tam wywiało.';
     this.galleries = Galleries;
     this.searchValue = '';
+    this.searchRok = '';
   }
   onSearchValue(){
     this.galleries = Galleries;
@@ -32,6 +34,18 @@ export class AppComponent{
       ));
     } else {
       this.galleries = Galleries;  
+    }
+  }
+  onSearchRok(year?: string) {
+    const selectedYear = year || this.searchRok; 
+  
+    if (selectedYear) {
+      this.searchRok = selectedYear;
+      this.galleries = Galleries.filter((gallery: IGallery) => 
+        new Date(gallery.dateCreated).getFullYear().toString() === selectedYear
+      );
+    } else {
+      this.galleries = Galleries;
     }
   }
   
