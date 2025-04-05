@@ -1,0 +1,43 @@
+<div>
+  <h1>Zadanie 1 - ustawienie polskiej lokalizacji</h1>
+  <p> {{ 123.456 | currency:"PLN" }} </p>
+  <p> {{ "2020-06-01" | date:"EEEE" }}</p>
+
+  <h1>Zadanie 2 - potoki wbudowane w Angular</h1>
+  <div *ngFor="let produkt of produkty">
+
+    <img [src]="produkt.zdjecie" alt="produkt" width="150"><br><br>
+  
+    Nazwa: {{ produkt.nazwa | titlecase }} <br>
+    Cena: <strong>{{ produkt.cena | currency:produkt.waluta:true }}</strong> <br>
+    Data sprzedaży: <strong>{{ produkt.dataSprzedazy | date:'longDate' }}</strong> <br>
+    URL zdjęcia: <a [href] = "produkt.zdjecie">{{ produkt.zdjecie }}</a> <br>
+    Obiekt w postaci JSON: <pre>{{ produkt | json }}</pre>
+  
+  </div>
+
+  <h1>Zadanie 3 – …</h1>
+  <p>Zadania brak, brakło czasu…</p>
+
+  <h1>Zadanie 4 - potok <code>numberOfSentences</code> </h1>  <p> ' ' = {{ inwokacja | numberOfSentences:' ' }} </p>
+  <p> 'a' = {{ inwokacja | numberOfSentences:'a' }} </p>
+  <p> 'o' = {{ inwokacja | numberOfSentences:'o' }} </p>
+  <p> 'cię' = {{ inwokacja | numberOfSentences:'cię' }} </p>
+  <p> 'obie' = {{ inwokacja | numberOfSentences:'obie' }} </p>
+
+  <h1>Zadanie 5 - potok <code>capitalWords</code> </h1>
+  <p> {{ inwokacja }} </p>
+  <p> {{ inwokacja | capitalWords }} </p>
+  <p> {{ inwokacja | capitalWords | uppercase }} </p>
+
+  <h1>Zadanie 6 - potok <code>limitTo</code> dla ciągu znaków </h1>
+  <p> {{ inwokacja }} </p>
+  <p> {{ inwokacja | limitTo:19 }} </p>
+  <p> {{ inwokacja | limitTo:22:7 }} </p>
+
+  <h4> <code>limitTo</code> dla tablic </h4>
+  
+  <p> {{ liczbyPierwsze }} </p>
+  <p> {{ liczbyPierwsze | limitTo:5 }} </p>
+  <p> {{ liczbyPierwsze | limitTo:7:5 }} </p>
+</div>
