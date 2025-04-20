@@ -1,0 +1,12 @@
+<h2>Logger</h2>
+
+<input [(ngModel)] = "message" placeholder="Wpisz wiadomość" />
+
+<button (click) = "addLog()">Dodaj log</button>
+<h3>Historia logów</h3>
+
+<ul>
+    <li *ngFor = "let log of logger.getLogs()">
+        {{ log }}
+    </li>
+</ul>
